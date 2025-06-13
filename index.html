@@ -80,7 +80,7 @@
     <div class="root-content" style="padding-top: 10px; width: 65%;">
       <!-- <h1 class="section-name">Generating <font style="color: red;">Multi-View and Controllable</font> Videos for Autonoumous Driving</h1>
    -->
-      <video style="margin:auto; right: 0; left: 0; width: 90%; display: block;" controls autoplay muted loop>
+      <video style="margin:auto; right: 0; left: 0; width: 90%; display: block;" controls autoplay muted loop poster="assests/preview.jpeg">
         <source src="assests/demo.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -92,10 +92,10 @@
     </div>
   </div>
   
-<div style="background-color: white; margin-right: auto; margin-left: auto;">
+<div style="background-color: #fcf7f7; margin-right: auto; margin-left: auto;">
     <a name="method"></a>
     <div class="root-content" style="padding-top: 10px; width: 65%;">
-        <h1 class="section-name">Motivation</h1>
+        <h1 class="section-name">&#127919;&nbsp;&nbsp; Motivation  &nbsp;&nbsp;&#127919;</h1>
         <img src="assests/intro.png" style="margin:auto; right: 0; left: 0; width: 90%; display: inline;">
         <p class="section-content-text" style="padding-bottom: 20px;"><strong>The spatial and temporal gaps in adapting VLMs to VLAs. </strong>VLMs are pretrained with large-scale VQA datasets to observe current high-level semantics in images, while VLAs are designed to predict low-level future actions in 3D space. The spatial-temporal gap poses challenges to the alignment process and results in data inefficiency in developing VLAs.</p>
         <!-- <img src="assests/pipeline_inference.png" style="margin:auto; right: 0; left: 0; width: 65%; display: inline;">
@@ -103,58 +103,57 @@
       </div>
 </div>
 
-<div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
-    <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 10px;">
-        <h1 class="section-name">&#127916;&nbsp;&nbsp; BEV-guided Video Generation &nbsp;&nbsp;&#127916;</h1>
-        <table style="width: 100%;">
-            <tbody>
-                <tr class="result-row">
-                    <td>
-                        <img src="assests/demo1.gif">
-                    </td>
-                </tr>
-                <tr class="result-row">
-                  <td>
-                      <img src="assests/demo2.gif">
-                  </td>
-                </tr>
-            
-            </tbody>
-        </table>
-        <p class="section-content-text"><strong>Controllable multi-view video generation. Panacea is able to generate realistic, controllable videos with good temporal and view consistensy.</strong></p>
-    </div>
-</div>
+
 <div style="background-color: white; margin-right: auto; margin-left: auto;">
-    <div class="root-content" style="padding-top: 10px;width: 65%; padding-bottom: 10px;">
-        <h1 class="section-name">&#127902;&nbsp;&nbsp; Attribute Controllable Video Generation &nbsp;&nbsp;&#127902;</h1>
-        <table style="width: 100%;">
-            <tbody>
-              <tr class="result-row">
-                <td>
-                    <img src="assests/attribute.png">
-                </td>
-            </tr>
-               
-            </tbody>
-        </table>
-        <p class="section-content-text"><strong>Video generation with variable attribute controls, such as weather, time, and scene, which allows Panacea to simulate a variety of rare driving scenarios, including extreme weather conditions such as rain and snow, thereby greatly enhancing the diversity of the data.</strong></p>
-    </div>
+    <a name="method"></a>
+    <div class="root-content" style="padding-top: 10px; width: 65%;">
+        <h1 class="section-name">&#127775;&nbsp;&nbsp; A Novel Training Paradigm &nbsp;&nbsp;&#127775;</h1>
+        <h1 class="section-name">Expert Action Data + Robot State Estimation Data</h1>
+        <img src="assests/data.png" style="margin:auto; right: 0; left: 0; width: 90%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>Two types of data used by ROSA to train VLA models. </strong> (a). Expert action prediction data, which requires human effort to collect. (b). Robot state estimation data, which is obtained automatically without human collection by letting the robot move randomly.</p>
+        <!-- <img src="assests/framework.png" style="margin:auto; right: 0; left: 0; width: 65%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>The two-stage inference pipeline of Panacea.</strong> Its two-stage process begins by creating multi-view images with BEV layouts, followed by using these images, along with subsequent BEV layouts, to facilitate the generation of following frames.</p> -->
+      </div>
 </div>
-<div style="background-color: #f5f5f5; margin-right: auto; margin-left: auto;">
-  <div class="root-content" style="padding-top: 10px;width: 65%; padding-bottom: 10px;">
-      <h1 class="section-name">&#128293;&nbsp;&nbsp; Benefiting Autonomous Driving  &nbsp;&nbsp;&#128293;</h1>
-      <table style="padding-left: 120px;width: 90%;">
-          <tbody>
-            <tr class="result-row">
-              <td>
-                  <img src="assests/gain.png">
-              </td>
-          </tr>
-          </tbody>
-      </table>
-      <p class="section-content-text"><strong> (a). Panoramic video generation based on BEV (Bird’s-Eye-View) layout sequence facilitates the establishment of a synthetic video dataset, which enhances perceptual tasks. (b). Producing panoramic videos with conditional images and BEV layouts can effectively elevate image-only datasets to video datasets, thus enabling the advancement of video-based perception techniques.</strong></p>
-  </div>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <a name="method"></a>
+    <div class="root-content" style="padding-top: 10px; width: 65%;">
+        <h1 class="section-name">&#129302;&nbsp;&nbsp; Architecture &nbsp;&nbsp;&#129302;</h1>
+        <img src="assests/framework.png" style="margin:auto; right: 0; left: 0; width: 90%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>Overview of the ROSA architecture. </strong> ROSA adopts a classic VLM architecture. Image
+            observations are encoded into image tokens by a vision encoder and a projector. These image tokens
+            are combined with text tokens and fed into an LLM. The model is trained with an autoregressive
+            next-token prediction objective.</p>
+        <!-- <img src="assests/framework.png" style="margin:auto; right: 0; left: 0; width: 65%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>The two-stage inference pipeline of Panacea.</strong> Its two-stage process begins by creating multi-view images with BEV layouts, followed by using these images, along with subsequent BEV layouts, to facilitate the generation of following frames.</p> -->
+      </div>
 </div>
+
+<div style="background-color: #fcf7f7; margin-right: auto; margin-left: auto;">
+    <a name="method"></a>
+    <div class="root-content" style="padding-top: 10px; width: 65%;">
+        <h1 class="section-name">&#128293;&nbsp;&nbsp; Effectiveness Under Different Data Scales &nbsp;&nbsp;&#128293;</h1>
+        <img src="assests/real_scale.png" style="margin:auto; right: 0; left: 0; width: 100%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>Performance under varying data scales.
+            </strong> It can be observed that ROSA consistently
+            outperforms the baseline in different data scales, with particularly significant advantages under limited data conditions.</p>
+        <h1 class="section-name">&#128526;&nbsp;&nbsp; Generalization Ability &nbsp;&nbsp;&#128526;</h1>
+        <img src="assests/unseen.png" style="margin:auto; right: 0; left: 0; width: 60%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>Performance on unseen tasks. </strong>ROSA's superior performance over the baseline demonstrates its strong generalization capability.</p>      </div>
+</div>
+
+<div style="background-color: white; margin-right: auto; margin-left: auto;">
+    <a name="method"></a>
+    <div class="root-content" style="padding-top: 10px; width: 65%;">
+        <h1 class="section-name">&#127942;&nbsp;&nbsp; Comparasion with Previous Methods &nbsp;&nbsp&#127942;</h1>
+        <img src="assests/compare.png" style="margin:auto; right: 0; left: 0; width: 90%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>Comparison with previous methods on RLBench. </strong> ROSA outperforms these related methods, highlighting its superior effectiveness.</p>
+        <!-- <img src="assests/rlbench_scale.png" style="margin:auto; right: 0; left: 0; width: 65%; display: inline;">
+        <p class="section-content-text" style="padding-bottom: 20px;"><strong>The two-stage inference pipeline of Panacea.</strong> Its two-stage process begins by creating multi-view images with BEV layouts, followed by using these images, along with subsequent BEV layouts, to facilitate the generation of following frames.</p> -->
+      </div>
+</div>
+
 <div style="background-color: white; margin-right: auto; margin-left: auto;">
     <div class="root-content" style="padding-top: 10px; width: 65%; padding-bottom: 10px;">
         <div>
@@ -165,12 +164,13 @@
             <pre style="margin-top: 5px;" class="bibtex">
                 <code>
 @artical{@misc{wen2023panacea,
-    title={Panacea: Panoramic and Controllable Video Generation for Autonomous Driving}, 
-    author={Yuqing Wen and Yucheng Zhao and Yingfei Liu and Fan Jia and Yanhui Wang and Chong Luo and Chi Zhang and Tiancai Wang and Xiaoyan Sun and Xiangyu Zhang},
+    title={ROSA: Harnessing Robot States for Vision-Language
+        and Action Alignment}, 
+    <!-- author={},
     year={2023},
     eprint={2311.16813},
     archivePrefix={arXiv},
-    primaryClass={cs.CV}
+    primaryClass={cs.CV} -->
 }
 }</code></pre>
         </div>
@@ -186,7 +186,7 @@
 <div style="background-color: white; margin-right: auto; margin-left: auto; text-align: center; padding-top: 35px; padding-bottom: 35px; position: absolute; left: 0; right: 0;">
     <!-- <a href="https://www.freecounterstat.com" title="page view counter"><img style="position: relative; margin: auto; left: 0; right: 0;" src="https://counter6.optistats.ovh/private/freecounterstat.php?c=1thh4qucalbdnq4a3txmcutn1emlfswl" border="0" title="page view counter" alt="page view counter"></a> -->
     <!-- <a href="https://www.freecounterstat.com" title="website counter"><img style="position: relative; margin: auto; left: 0; right: 0;" src="https://counter8.optistats.ovh/private/freecounterstat.php?c=zp91bykc8saafxf9jd2w2rw2zarmwe84" border="0" title="website counter" alt="website counter"></a> -->
-    <a href="https://www.freecounterstat.com" title="web counter"><img style="position: relative; margin: auto; left: 0; right: 0;" src="https://counter8.optistats.ovh/private/freecounterstat.php?c=xj4jzx1cxryaecrjdte7r1cehc771alt" border="0" title="web counter" alt="web counter"></a>
+    <a href="https://www.freecounterstat.com" title="web counter"><img style="position: relative; margin: auto; left: 0; right: 0;" src="https://counter1.optistats.ovh/private/freecounterstat.php?c=17hb8c4nryl5pwcns7euls8fcetl1lhu" border="0" title="web counter" alt="web counter"></a>
     <p>Visitor Count</p>
 </div>
 </body>
